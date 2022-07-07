@@ -7,6 +7,18 @@ float[] LightGrassX = new float[50];
 float[] LightGrassY = new float[50];
 // light grass array
 
+color CenterColor = (#FFD103);
+// center of the flowers color
+float stemX = 555;
+float stemY = 200;
+// for the stem and flower centers Y
+
+color flowerPetals = (#FA0068);
+
+float PetalX = stemX;
+float PetalY = 200;
+// flower petal values
+
 void setup() {
   size(700, 700);
   gradient(255, 251, 131, 121, 205, 255);
@@ -21,9 +33,14 @@ void setup() {
     fill(#B5FA9F);
     LightGrassX[i] = x;
     LightGrassY[i] = y;
+     // grass array
   }
-  // grass array
-  flowerStem(556, 200);
+  
+  flowerStem(stemX, stemY);
+  // flower stem
+  
+  flowerCenter(stemX, stemY, CenterColor);
+  // flower center
 }
 
 void draw() {
@@ -34,6 +51,8 @@ void draw() {
     line(LightGrassX[i], LightGrassY[i], LightGrassX[i] + 5, LightGrassY[i] + 10);
     // grass arrsy
   }
+  
+ 
 }
 
 
@@ -54,6 +73,21 @@ void gradient(float r1, float g1, float b1, float r2, float g2, float b2) {
   rect(StemX, StemY, 40, StemY + 130);
   // stem of the flower
  }
+ 
+ void flowerCenter(float CenterX, float CenterY, color CenterColor) {
+   stroke(147, 124, 9);
+   strokeWeight(2);
+   fill(CenterColor);
+   circle(CenterX + 20, CenterY, 95);
+   // center of the flower
+ }
+ 
+  void flowerPetals(float PetalY, float PetalX) {
+   ellipse(PetalX, PetalY, PetalX - 40, 30);
+ }
+ 
+ 
+
 void mousePressed() {
  println(mouseX, mouseY); 
 }
